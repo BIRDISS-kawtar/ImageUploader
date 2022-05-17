@@ -54,7 +54,6 @@ export default{
             @dragleave.prevent="dragleave_handle"
             @dragover.prevent
             @drop.prevent="drop_image($event)">
-            <img v-bind:src="image_url"/>
             <p>Drag and Drop your image here</p>
         </div>
         <input type="file" accept="image/*" @change="upload_image($event)">
