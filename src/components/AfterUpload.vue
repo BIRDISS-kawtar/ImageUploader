@@ -3,11 +3,8 @@ export default{
     name : "afterUpload",
     data(){
         return{
-            image_url : "",
+            image_url : this.$store.getters.getImageURL,
         };
-    },
-    created(){
-        this.image_url = this.$store.getters.getImageURL;
     }
 }
 </script>

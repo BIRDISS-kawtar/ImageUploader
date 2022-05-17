@@ -19,7 +19,8 @@ export default{
                                                     this.progress_value = this.progress_counter*10;
                                                     console.log("progress value is ",this.progress_value,"%");
                                                 }else if(this.progress_counter == 10){
-                                                    clearInterval(this.setInterval_ID)
+                                                    clearInterval(this.setInterval_ID);
+                                                    this.$router.push("/uploaded");
                                                 }
                                             },
                                 1000);

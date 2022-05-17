@@ -1,11 +1,11 @@
 <script>
-import DragAndDrop from './components/DragAndDrop.vue';
-import Loader from './components/Loader.vue';
-import AfterUpload from './components/AfterUpload.vue';
+import BeforeUpload from "./components/BeforeUpload.vue";
+import Loader from "./components/Loader.vue";
+import AfterUpload from "./components/AfterUpload.vue"
 export default{
-  name : "home",
-  components :{
-    DragAndDrop,
+  name : "app",
+  components:{
+    BeforeUpload,
     Loader,
     AfterUpload,
   }
@@ -13,9 +13,7 @@ export default{
 </script>
 
 <template>
-  <DragAndDrop/>
-  <!-- <Loader/> -->
-  <AfterUpload/>
+  <RouterView/>
 </template>
 
 <style>
