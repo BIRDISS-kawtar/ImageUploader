@@ -1,15 +1,14 @@
 <script>
-import DragAndDrop from './components/DragAndDrop.vue'
+import DragAndDrop from './components/DragAndDrop.vue';
 export default{
   name : "home",
   components :{
-    DragAndDrop
+    DragAndDrop,
   }
 }
 </script>
 
 <template>
-  <h1>Upload your image</h1>
   <DragAndDrop/>
 </template>
 

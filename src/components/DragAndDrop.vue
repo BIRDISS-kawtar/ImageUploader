@@ -4,7 +4,6 @@ export default{
     name : "dragDrop",
     data(){
         return{
-            drag_drop_state : "Nothing",
             image_url : "/image.svg",
         }
     },
@@ -17,16 +16,22 @@ export default{
             this.drag_drop_state = "Drag Leave Event";
             console.log("state = ",this.drag_drop_state);
         },
-        drop_handle(event){
+        drop_image(event){
 
-            if (event.dataTransfer && event.dataTransfer.files) {// Check if Images are dropped 
+            if (event.dataTransfer && event.dataTransfer.files) {// Check if Image is dropped 
                 
                 if(event.dataTransfer.files[0].type.match(/image\//)){ // Accept only one image
 
                     this.image_url = URL.createObjectURL(event.dataTransfer.files[0]);
-                    console.log("Result is = ",URL.createObjectURL(event.dataTransfer.files[0]));
                 }
                 
+            }
+        },
+        upload_image(event){
+
+            if (event.target.files) {// Check if Image is uploaded 
+
+                this.image_url = URL.createObjectURL(event.target.files[0]);
             }
         }
     },
@@ -41,19 +46,34 @@ export default{
 }
 </script>
 <template>
-    <p>Drag & Drop your image here</p>
-    <div class="drag_drop_zone"
-        @dragenter.prevent="dragenter_handle"
-        @dragleave.prevent="dragleave_handle"
-        @dragover.prevent
-        @drop.prevent="drop_handle($event)">
-        <img v-bind:src="image_url"/>
-    </div>
+    <div class="upload_image">
+        <h1>Upload your image</h1>
+        <h3>File should be Jpeg,Png,..</h3>
+        <div class="drag_drop_zone"
+            @dragenter.prevent="dragenter_handle"
+            @dragleave.prevent="dragleave_handle"
+            @dragover.prevent
+            @drop.prevent="drop_image($event)">
+            <img v-bind:src="image_url"/>
+            <p>Drag and Drop your image here</p>
+        </div>
+        <input type="file" accept="image/*" @change="upload_image($event)">
+    </div>   
 </template>
 <style scoped>
+.upload_image{
+    justify-content: center;
+    margin-left: 35% ;
+    margin-top: 5% ;
+    width: 402px;
+    height: 469px;
+    border-radius: 12px;
+    border: black solid;
+}
 .drag_drop_zone{
-    width: 500px;
-    height: 400px;
+    width: 338px;
+    height: 218.9px;
+    border-radius: 12px;
     border: darkblue dashed;
 }
 </style>
