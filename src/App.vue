@@ -13,7 +13,7 @@ export default{
 </script>
 
 <template>
-  <!-- <DragAndDrop/> -->
+  <DragAndDrop/>
   <!-- <Loader/> -->
   <AfterUpload/>
 </template>

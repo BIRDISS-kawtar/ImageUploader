@@ -1,11 +1,10 @@
 <script>
-import { watch } from '@vue/runtime-core';
 export default{
     name : "dragDrop",
     data(){
         return{
-            image_url : "/image.svg",
-        }
+            
+        };
     },
     methods :{
         dragenter_handle(){
@@ -22,7 +21,7 @@ export default{
                 
                 if(event.dataTransfer.files[0].type.match(/image\//)){ // Accept only one image
 
-                    this.image_url = URL.createObjectURL(event.dataTransfer.files[0]);
+                    this.$store.commit('setImageURL', URL.createObjectURL(event.dataTransfer.files[0]));
                 }
                 
             }
@@ -30,19 +29,10 @@ export default{
         upload_image(event){
 
             if (event.target.files) {// Check if Image is uploaded 
-
-                this.image_url = URL.createObjectURL(event.target.files[0]);
+                this.$store.commit('setImageURL', URL.createObjectURL(event.target.files[0]));
             }
         }
     },
-    watch: {
-        image_url: {
-            handler(newValue) {
-                console.log(`The new value of image url = ${newValue}`)
-            },
-            immediate: true
-        }
-    }
 }
 </script>
 <template>

@@ -3,8 +3,11 @@ export default{
     name : "afterUpload",
     data(){
         return{
-            image_url : "/image.svg",
+            image_url : "",
         };
+    },
+    created(){
+        this.image_url = this.$store.getters.getImageURL;
     }
 }
 </script>
@@ -24,7 +27,7 @@ export default{
     margin-left: 35% ;
     margin-top: 5% ;
 }
-.after_upload img{
+.after_upload img{ 
     width: 338px;
     height: 224.4px;
     border-radius: 12px;
