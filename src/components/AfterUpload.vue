@@ -3,21 +3,27 @@
         <h1>Uploaded Successfully!</h1>
         <img v-bind:src="image_url"/>
         <button style="background-color : grey;" @click="copyToClipboard">Copy to the Clipboard</button>    
-        <br/>
-        <button style="background-color : grey;" @click="copyWithLink">Copy Link</button>
+        <div style="border : black solid;">
+            <input id="storageURL" disabled />
+            <button style="background-color : grey;" @click="copyWithLink">Copy Link</button>
+        </div>
     </div>
 </template>
 <script>
-import { getStorage, ref, uploadBytes } from "firebase/storage";
 export default{
     name : "afterUpload",
     data(){
         return{
             image_url : this.$store.getters.getImageURL,
+            storage_url : this.$store.getters.getStorageURL,
         };
+    },
+    mounted(){
+        document.getElementById("storageURL").setAttribute("value",this.storage_url);
     },
     methods:{
         copyToClipboard(){
+            // Convert image to blob to be used later
             const image_to_copy = new Image();
             const canvas = document.createElement("canvas"); // Create a canvas to be used for drawing the image the image later
             const canvas_ctx = canvas.getContext("2d");// Get contexte of canvas ( 2d or 3d in OpenGL)
@@ -34,17 +40,15 @@ export default{
                     }, "image/png", 0.75); // Callback,Type and Quality
                 };
             });// NB : all types of images are converted to png behind the scenes
-            const storage = getStorage();
-            const storageRef = ref(storage, 'images/test');
-
-            // 'file' comes from the Blob or File API
-            uploadBytes(storageRef, blob).then((snapshot) => {
-                console.log('Uploaded a blob or file!');
-            });
             navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]); // Using Clipboard API  
         },
         copyWithLink(){
-            console.log("Link hereeeeeeeeeee!");
+
+            console.log("------------Copy Link ------------");
+            const content = document.getElementById("storageURL").getAttribute("value");
+            const blob = new Blob([content], { type: "text/plain" });
+            navigator.clipboard.write([new ClipboardItem({ "text/plain": blob })]);
+            console.log("------------Copy Link END------------");    
         }
     }
 }

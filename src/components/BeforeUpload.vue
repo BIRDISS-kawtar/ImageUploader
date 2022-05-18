@@ -13,12 +13,12 @@
     </div>   
 </template>
 <script>
-import { watch } from '@vue/runtime-core';
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 export default{
     name : "beforeUpload",
     data(){
         return{
-            
+            storage: getStorage(),// Root storage
         };
     },
     methods :{
@@ -31,34 +31,31 @@ export default{
             console.log("state = ",this.drag_drop_state);
         },
         drop_image(event){
-
-            if (event.dataTransfer && event.dataTransfer.files) {// Check if Image is dropped 
-                
-                if(event.dataTransfer.files[0].type.match(/image\//)){ // Accept only one image
-
-                    this.$store.commit('setImageURL', URL.createObjectURL(event.dataTransfer.files[0]));
-                    this.$router.push("/loading");
-                }
-                
-            }
+            this.communCode(event.dataTransfer.files[0]);
         },
         upload_image(event){
+            this.communCode(event.target.files[0]);
+        },
+        communCode(imageFile){
+            
+            if (imageFile) {// Check if Image is uploaded 
+                if(imageFile.type.match(/image\//)){ // Accept only one image
+                    this.$store.commit('setImageURL', URL.createObjectURL(imageFile));
+                    const storageRef= ref(this.storage, "images/test100");
+                    uploadBytes(storageRef, imageFile)
+                    .then((snapshot) => {// Upload image to firebase storage
 
-            if (event.target.files) {// Check if Image is uploaded 
-                this.$store.commit('setImageURL', URL.createObjectURL(event.target.files[0]));
-                this.$router.push("/loading");
+                        getDownloadURL(snapshot.ref)
+                        .then((url) => {
+                            this.$store.commit('setStorageURL',url);// image URL is Firebase 
+                        });
+                    });
+                    this.$router.push("/loading");
+                }
 
             }
         }
     },
-    watch: {
-        image_url: {
-            handler(newValue) {
-                console.log(`The new value of image url = ${newValue}`)
-            },
-            immediate: true
-        }
-    }
 }
 </script>
 <style scoped>
