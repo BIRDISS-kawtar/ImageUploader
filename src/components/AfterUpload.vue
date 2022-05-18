@@ -8,6 +8,7 @@
     </div>
 </template>
 <script>
+import { getStorage, ref, uploadBytes } from "firebase/storage";
 export default{
     name : "afterUpload",
     data(){
@@ -33,6 +34,13 @@ export default{
                     }, "image/png", 0.75); // Callback,Type and Quality
                 };
             });// NB : all types of images are converted to png behind the scenes
+            const storage = getStorage();
+            const storageRef = ref(storage, 'images/test');
+
+            // 'file' comes from the Blob or File API
+            uploadBytes(storageRef, blob).then((snapshot) => {
+                console.log('Uploaded a blob or file!');
+            });
             navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]); // Using Clipboard API  
         },
         copyWithLink(){

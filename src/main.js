@@ -4,6 +4,7 @@ import './index.css'
 import store from './store'
 import router from "./router";
 import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
 
 const app =createApp(App);
 
@@ -19,6 +20,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
+// Get a reference to the storage service, which is used to create references in your storage bucket
+const storage = getStorage(firebaseApp);
 
 app.use(store);
 app.use(router);
