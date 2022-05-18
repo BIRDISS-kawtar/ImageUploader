@@ -2,7 +2,9 @@
     <div class="after_upload">
         <h1>Uploaded Successfully!</h1>
         <img v-bind:src="image_url"/>
-        <button style="background-color : grey;" @click="copyToClipboard">Copy to the Clipboard</button>      
+        <button style="background-color : grey;" @click="copyToClipboard">Copy to the Clipboard</button>    
+        <br/>
+        <button style="background-color : grey;" @click="copyWithLink">Copy Link</button>
     </div>
 </template>
 <script>
@@ -31,8 +33,10 @@ export default{
                     }, "image/png", 0.75); // Callback,Type and Quality
                 };
             });// NB : all types of images are converted to png behind the scenes
-            navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]); // Using Clipboard API
-            
+            navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]); // Using Clipboard API  
+        },
+        copyWithLink(){
+            console.log("Link hereeeeeeeeeee!");
         }
     }
 }
