@@ -3,14 +3,21 @@
         <h1>Upload your image</h1>
         <h3>File should be Jpeg,Png,..</h3>
         <div class="drag_drop_zone"
-            @dragenter.prevent="dragenter_handle"
-            @dragleave.prevent="dragleave_handle"
+            @dragenter.prevent
+            @dragleave.prevent
             @dragover.prevent
             @drop.prevent="drop_image($event)">
             <p>Drag and Drop your image here</p>
+            <img src="../assets/images/image.svg"/>
         </div>
-        <input type="file" accept="image/*" @change="upload_image($event)">
-    </div>   
+        <p>Or</p>
+        <div style="border : black solid;width : 200px;height : 60px;">
+            Choose a file
+            <input type="file" accept="image/*" @change="upload_image($event)"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0;cursor : pointer;"/>
+        </div>
+    </div> 
+    <p>created by <a href="https://github.com/BIRDISS-kawtar">BIRDISS-kawtar</a> - devChallenges.io</p>  
 </template>
 <script>
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
