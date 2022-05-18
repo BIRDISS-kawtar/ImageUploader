@@ -41,7 +41,7 @@ export default{
             if (imageFile) {// Check if Image is uploaded 
                 if(imageFile.type.match(/image\//)){ // Accept only one image
                     this.$store.commit('setImageURL', URL.createObjectURL(imageFile));
-                    const storageRef= ref(this.storage, "images/test100");
+                    const storageRef= ref(this.storage, `images/${imageFile.name}`);
                     uploadBytes(storageRef, imageFile)
                     .then((snapshot) => {// Upload image to firebase storage
 
