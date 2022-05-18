@@ -1,3 +1,9 @@
+<template>
+    <div class="loader">
+        <h1>Uploading...</h1>
+        <progress max="100" v-bind:value="progress_value"></progress>
+    </div>
+</template>
 <script>
 export default{
     name : "loader",
@@ -28,12 +34,6 @@ export default{
     }
 }
 </script>
-<template>
-    <div class="loader">
-        <h1>Uploading...</h1>
-        <progress max="100" v-bind:value="progress_value"></progress>
-    </div>
-</template>
 <style scoped>
 .loader{
     width: 400.36px;

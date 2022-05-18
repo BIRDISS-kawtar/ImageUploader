@@ -1,3 +1,10 @@
+<template>
+    <div class="after_upload">
+        <h1>Uploaded Successfully!</h1>
+        <img v-bind:src="image_url"/>
+        <button style="background-color : grey;" @click="copyToClipboard">Copy to the Clipboard</button>      
+    </div>
+</template>
 <script>
 export default{
     name : "afterUpload",
@@ -30,13 +37,6 @@ export default{
     }
 }
 </script>
-<template>
-    <div class="after_upload">
-        <h1>Uploaded Successfully!</h1>
-        <img v-bind:src="image_url"/>
-        <button style="background-color : grey;" @click="copyToClipboard">Copy to the Clipboard</button>      
-    </div>
-</template>
 <style scoped>
 .after_upload{
     width: 400.36px;

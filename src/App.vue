@@ -1,3 +1,6 @@
+<template>
+  <RouterView/>
+</template>
 <script>
 import BeforeUpload from "./components/BeforeUpload.vue";
 import Loader from "./components/Loader.vue";
@@ -11,11 +14,6 @@ export default{
   }
 }
 </script>
-
-<template>
-  <RouterView/>
-</template>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

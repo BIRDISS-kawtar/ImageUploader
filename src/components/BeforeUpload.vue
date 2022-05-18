@@ -1,3 +1,17 @@
+<template>
+    <div class="upload_image">
+        <h1>Upload your image</h1>
+        <h3>File should be Jpeg,Png,..</h3>
+        <div class="drag_drop_zone"
+            @dragenter.prevent="dragenter_handle"
+            @dragleave.prevent="dragleave_handle"
+            @dragover.prevent
+            @drop.prevent="drop_image($event)">
+            <p>Drag and Drop your image here</p>
+        </div>
+        <input type="file" accept="image/*" @change="upload_image($event)">
+    </div>   
+</template>
 <script>
 import { watch } from '@vue/runtime-core';
 export default{
@@ -47,20 +61,6 @@ export default{
     }
 }
 </script>
-<template>
-    <div class="upload_image">
-        <h1>Upload your image</h1>
-        <h3>File should be Jpeg,Png,..</h3>
-        <div class="drag_drop_zone"
-            @dragenter.prevent="dragenter_handle"
-            @dragleave.prevent="dragleave_handle"
-            @dragover.prevent
-            @drop.prevent="drop_image($event)">
-            <p>Drag and Drop your image here</p>
-        </div>
-        <input type="file" accept="image/*" @change="upload_image($event)">
-    </div>   
-</template>
 <style scoped>
 .upload_image{
     justify-content: center;

@@ -5,7 +5,7 @@ export default createStore({
 
     // The shared data
     state: {
-    imageURL : "/image.png",
+    imageURL : "/image.svg",
     },
     // For getting the state
     getters: {
