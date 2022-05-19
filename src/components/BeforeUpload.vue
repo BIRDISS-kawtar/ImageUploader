@@ -1,23 +1,33 @@
 <template>
-    <div class="upload_image">
-        <h1>Upload your image</h1>
-        <h3>File should be Jpeg,Png,..</h3>
-        <div class="drag_drop_zone"
+    <div class="w-[28%] h-[65%] left-[36%] top-[15%] 
+                absolute shadow-[_0px_4px_12px_rgba(0,0,0,0.1)] 
+                rounded-[12px]">
+        <!----------------------Titles------------------------>        
+        <h1 class="text-[#4F4F4F] mt-[8%]">Upload your image</h1>
+        <p class="mt-[2%]">File should be Jpeg,Png,..</p>
+        <!-----------------Drag and Drop Zone------------------>  
+        <div class="w-[84%] h-[47%] mt-[8%] mx-[7%]
+                    border-dashed border-[#97BEF4] border-[1px]
+                    rounded-[12px] bg-[#F6F8FB]"
             @dragenter.prevent
             @dragleave.prevent
             @dragover.prevent
             @drop.prevent="drop_image($event)">
-            <p>Drag and Drop your image here</p>
-            <img src="../assets/images/image.svg"/>
+                <img class="mx-[33%] mt-[10%] mb-[10%]" src="../assets/images/image.svg"/>
+                <p>Drag and Drop your image here</p>
         </div>
-        <p>Or</p>
-        <div style="border : black solid;width : 200px;height : 60px;">
-            Choose a file
-            <input type="file" accept="image/*" @change="upload_image($event)"
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0;cursor : pointer;"/>
+        <p class="my-[4%]">Or</p>
+        <!-----------------Upload with Butthon Zone--------------> 
+        <div class="w-[25%] h-[7%] bg-[#2F80ED] rounded-[8px] mx-[37.5%] z-2 absolute cursor-pointer">
+            <label class="w-[100%] h-[100%]">Choose a file</label>
+        </div>
+        <div class="w-[25%] h-[7%] mx-[37.5%] z-1 absolute cursor-pointer">
+            <input class="w-[100%] h-[100%] opacity-0 cursor-pointer" type="file" accept="image/*" @change="upload_image($event)"/>
         </div>
     </div> 
-    <p>created by <a href="https://github.com/BIRDISS-kawtar">BIRDISS-kawtar</a> - devChallenges.io</p>  
+    <p class="left-[40%] top-[95%] absolute">
+        created by <a href="https://github.com/BIRDISS-kawtar">BIRDISS-kawtar</a> - devChallenges.io
+    </p>  
 </template>
 <script>
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";

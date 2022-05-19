@@ -1,5 +1,5 @@
 <template>
-  <RouterView/>
+  <RouterView />
 </template>
 <script>
 import BeforeUpload from "./components/BeforeUpload.vue";
@@ -11,6 +11,9 @@ export default{
     BeforeUpload,
     Loader,
     AfterUpload,
+  },
+  mounted(){
+    document.getElementsByTagName("html")[0].style.background = "#FAFAFB";
   }
 }
 </script>
