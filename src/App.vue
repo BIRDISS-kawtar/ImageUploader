@@ -1,5 +1,8 @@
 <template>
   <RouterView />
+  <p class="left-[40%] top-[95%] absolute">
+      created by <a href="https://github.com/BIRDISS-kawtar">BIRDISS-kawtar</a> - devChallenges.io
+  </p> 
 </template>
 <script>
 import BeforeUpload from "./components/BeforeUpload.vue";

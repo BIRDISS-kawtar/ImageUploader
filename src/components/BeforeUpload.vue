@@ -24,10 +24,7 @@
         <div class="w-[25%] h-[7%] mx-[37.5%] z-1 absolute cursor-pointer">
             <input class="w-[100%] h-[100%] opacity-0 cursor-pointer" type="file" accept="image/*" @change="upload_image($event)"/>
         </div>
-    </div> 
-    <p class="left-[40%] top-[95%] absolute">
-        created by <a href="https://github.com/BIRDISS-kawtar">BIRDISS-kawtar</a> - devChallenges.io
-    </p>  
+    </div>  
 </template>
 <script>
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
@@ -39,18 +36,10 @@ export default{
         };
     },
     methods :{
-        dragenter_handle(){
-            this.drag_drop_state = "Drag Enter Event";
-            console.log("state = ",this.drag_drop_state);
-        }, 
-        dragleave_handle(){
-            this.drag_drop_state = "Drag Leave Event";
-            console.log("state = ",this.drag_drop_state);
-        },
-        drop_image(event){
+        drop_image(event){ // Drag and Drop Zone 
             this.communCode(event.dataTransfer.files[0]);
         },
-        upload_image(event){
+        upload_image(event){ // Upload with button Zone 
             this.communCode(event.target.files[0]);
         },
         communCode(imageFile){
@@ -75,20 +64,3 @@ export default{
     },
 }
 </script>
-<style scoped>
-.upload_image{
-    justify-content: center;
-    margin-left: 35% ;
-    margin-top: 5% ;
-    width: 402px;
-    height: 469px;
-    border-radius: 12px;
-    border: black solid;
-}
-.drag_drop_zone{
-    width: 338px;
-    height: 218.9px;
-    border-radius: 12px;
-    border: darkblue dashed;
-}
-</style>

@@ -1,7 +1,14 @@
 <template>
-    <div class="loader">
-        <h1>Uploading...</h1>
-        <progress max="100" v-bind:value="progress_value"></progress>
+    <div class="w-[28%] h-[16%] top-[42%] left-[36%] 
+                absolute shadow-[_0px_4px_12px_rgba(0,0,0,0.1)] 
+                rounded-[12px]">
+        <!-----------------------Title----------------------->
+        <h1 class="text-[#4F4F4F] my-[5%]">Uploading...</h1>
+        <!-------------------------Progress Bar----------------------->
+        <div class="w-[80%] h-[10%] mx-[10%] bg-[#F2F2F2] rounded-full">
+            <div id="progressValue" class="bg-[#2F80ED] h-2.5 rounded-full"
+                v-bind:style="{ width: progressValue+'%' }"></div>
+        </div>
     </div>
 </template>
 <script>
@@ -9,24 +16,24 @@ export default{
     name : "loader",
     data(){
         return{
-            progress_counter : 0,
-            progress_value : 0,
+            progressCounter : 0,
+            progressValue : 0,
             setInterval_ID : null,
         };
     },
-    created(){
+    mounted(){
         this.incrementProgress();
     },
     methods :{
         incrementProgress(){
             this.setInterval_ID = setInterval(() => {
-                                                if(this.progress_counter < 10){
-                                                    this.progress_counter += 1;
-                                                    this.progress_value = this.progress_counter*10;
-                                                    console.log("progress value is ",this.progress_value,"%");
-                                                }else if(this.progress_counter == 10){
+                                                if(this.progressCounter < 10){
+                                                    this.progressCounter += 1;
+                                                    this.progressValue = this.progressCounter*10;
+                                                    console.log("progress value is ",this.progressValue,"%");
+                                                }else if(this.progressCounter == 10){
                                                     clearInterval(this.setInterval_ID);
-                                                    this.$router.push("/uploaded");
+                                                    //this.$router.push("/uploaded");
                                                 }
                                             },
                                 1000);
@@ -34,14 +41,4 @@ export default{
     }
 }
 </script>
-<style scoped>
-.loader{
-    width: 400.36px;
-    height: 134.57px;
-    border-radius: 12px;
-    border: black solid;
-    justify-content: center;
-    margin-left: 35% ;
-    margin-top: 5% ;
-}
-</style>
+
