@@ -45,7 +45,7 @@ This solution to the challenge provides mainly 5 important users stories:
 - Display the uploaded image to the user
 - Show a little loader while uploading
 - Copy the image to the clipboard 
-- Copy the link of the sotred image
+- Copy the link of the stored image
 
 ### Built With
 
