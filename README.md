@@ -55,6 +55,7 @@ This solution to the challenge provides mainly 5 important users stories:
 - Tailwind
 - Firebase Hosting
 - Firebase Cloud Storage
+- Vite
 - Vue-Router
 - Vuex 
 
