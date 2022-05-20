@@ -3,7 +3,7 @@
                 absolute shadow-[_0px_4px_12px_rgba(0,0,0,0.1)] 
                 rounded-[12px]">
         <!-----------------------Title----------------------->
-        <h1 class="text-[#4F4F4F] my-[5%]">Uploading...</h1>
+        <h1 class="text-[18px] text-[#4F4F4F] my-[5%]">Uploading...</h1>
         <!-------------------------Progress Bar----------------------->
         <div class="w-[80%] h-[10%] mx-[10%] bg-[#F2F2F2] rounded-full">
             <div id="progressValue" class="bg-[#2F80ED] h-2.5 rounded-full"

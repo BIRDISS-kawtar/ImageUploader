@@ -1,7 +1,7 @@
 <template>
-  <RouterView />
-  <p class="left-[40%] top-[95%] absolute">
-      created by <a href="https://github.com/BIRDISS-kawtar">BIRDISS-kawtar</a> - devChallenges.io
+  <RouterView class="font-poppins font-bold"/>
+  <p class="left-[40%] top-[95%] absolute font-mons text-[#A9A9A9]">
+      created by <a class="text-[14px] font-bold underline" href="https://github.com/BIRDISS-kawtar">BIRDISS-kawtar</a> - devChallenges.io
   </p> 
 </template>
 <script>

@@ -3,8 +3,8 @@
                 absolute shadow-[_0px_4px_12px_rgba(0,0,0,0.1)] 
                 rounded-[12px]">
         <!----------------------Titles------------------------>        
-        <h1 class="text-[#4F4F4F] mt-[8%]">Upload your image</h1>
-        <p class="mt-[2%]">File should be Jpeg,Png,..</p>
+        <h1 class="text-[18px] text-[#4F4F4F] mt-[8%]">Upload your image</h1>
+        <p class="text-[12px] text-[#828282] mt-[2%]">File should be Jpeg,Png,..</p>
         <!-----------------Drag and Drop Zone------------------>  
         <div class="w-[84%] h-[47%] mt-[8%] mx-[7%]
                     border-dashed border-[#97BEF4] border-[1px]
@@ -14,12 +14,12 @@
             @dragover.prevent
             @drop.prevent="drop_image($event)">
                 <img class="mx-[33%] mt-[10%] mb-[10%]" src="../assets/images/image.svg"/>
-                <p>Drag and Drop your image here</p>
+                <p class="text-[14px] text-[#BDBDBD]">Drag and Drop your image here</p>
         </div>
-        <p class="my-[4%]">Or</p>
+        <p class="text-[14px] my-[4%] text-[#BDBDBD]">Or</p>
         <!-----------------Upload with Butthon Zone--------------> 
         <div class="w-[25%] h-[7%] bg-[#2F80ED] rounded-[8px] mx-[37.5%] z-2 absolute cursor-pointer">
-            <label class="w-[100%] h-[100%]">Choose a file</label>
+            <label class="w-[100%] h-[100%] text-[14px] text-center text-white">Choose a file</label>
         </div>
         <div class="w-[25%] h-[7%] mx-[37.5%] z-1 absolute cursor-pointer">
             <input class="w-[100%] h-[100%] opacity-0 cursor-pointer" type="file" accept="image/*" @change="upload_image($event)"/>

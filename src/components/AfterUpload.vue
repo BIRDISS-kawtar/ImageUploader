@@ -4,20 +4,20 @@
                 rounded-[12px]">
         <!-----------------------Titles------------------->
         <img class="w-8 h-8 ml-[46%] mt-[10%]" src="../assets/images/check_mark.png"/>
-        <h1 class="mt-[3%]">Uploaded Successfully!</h1>
+        <h1 class="mt-[3%] text-[18px] text-[#4F4F4F]">Uploaded Successfully!</h1>
         <!-------------------Uploaded Image------------------------->
         <img class="w-[90%] h-[40%] ml-[5%] mt-[7%] rounded-[12px]" v-bind:src="image_url"/>
         <!------------------Copy To Clipboard---------------------->
-        <button class="w-[40%] h-[6%] mt-[7%] bg-[#2F80ED] rounded-[8px]" @click="copyToClipboard">
+        <button class="w-[40%] h-[6%] mt-[7%] bg-[#2F80ED] rounded-[8px] text-[12px] text-white" @click="copyToClipboard">
             Copy to the Clipboard
         </button>   
-        <p class="my-[4%]">Or</p>
+        <p class="my-[4%] text-[14px]">Or</p>
         <!------------------Copy Storage Link----------------------> 
         <div class="w-[90%] h-[7%] ml-[5%] rounded-[8px]
                     bg-[#F6F8FB] border-solid
                     border-[#E0E0E0] border-[1px]">
-            <input class="w-[64%] h-[95%] ml-[-0.1%]" type="text" id="storageURL" disabled />
-            <button class="w-[32%] h-[95%] ml-[3%] mt-[0.2%] rounded-[8px] bg-[#2F80ED]" @click="copyWithLink">Copy Link</button>
+            <input class="w-[64%] h-[95%] ml-[-0.1%] text-[12px]" type="text" id="storageURL" disabled />
+            <button class="w-[32%] h-[95%] ml-[3%] mt-[0.2%] rounded-[8px] bg-[#2F80ED] text-[12px] text-white" @click="copyWithLink">Copy Link</button>
         </div>
     </div>
 </template>
