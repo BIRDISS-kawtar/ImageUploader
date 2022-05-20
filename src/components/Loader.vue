@@ -33,10 +33,10 @@ export default{
                                                     console.log("progress value is ",this.progressValue,"%");
                                                 }else if(this.progressCounter == 10){
                                                     clearInterval(this.setInterval_ID);
-                                                    //this.$router.push("/uploaded");
+                                                    this.$router.push("/uploaded");
                                                 }
                                             },
-                                1000);
+                                250);
         }
     }
 }
